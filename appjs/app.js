@@ -31,7 +31,7 @@ function NarrowItDownController(MenuSearchService,$scope){
 
 function FoundItems(){
   var ddo={
-    templateUrl:'../foundItems.html',
+    templateUrl:'foundItems.html',
     scope:{
       list:'=myList'
     }
