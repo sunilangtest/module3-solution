@@ -5,7 +5,10 @@
 <li ng-repeat="item in list.items">
   <div class="row">
     <div class="col-sm-6">
-      <span>Name : {{item.name}}</span>
+      <span> <b>Name</b> : {{item.name}}</span> <br/>
+      <span><b>Short_name</b> : {{item.short_name}}</span><br/>
+      <span><b>Description</b>  : {{item.description }}</span>
+
     </div>
     <div class="col-sm-3">
       <button class="button-primary" ng-click="list.removeItem($index);">Don't want this one!</button>

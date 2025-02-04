@@ -17,7 +17,12 @@ function NarrowItDownController(MenuSearchService,$scope){
     console.log(info);
     var promise=MenuSearchService.getmenuitems(info);
     promise.then(function(response){
-      menu.items=response.data;
+      if(response.data != null && response.data.length >0 && info.trim() !=""){
+      menu.items=response.data.filter(a=>a.description.includes(info));
+    }
+    else {
+      menu.items=[];
+    }
     })
     .catch(function (error){
       console.log(error);
@@ -45,7 +50,7 @@ function MenuSearchService($http,ApiBasePath){
   service.getmenuitems=function(searchterm){
     var response=$http({
       method:"GET",
-      url:(ApiBasePath+"menu_items/"+searchterm+"/menu_items.json"),
+      url:(ApiBasePath+"menu_items/A/menu_items.json"),
       param:{
         short_name:searchterm
       }
